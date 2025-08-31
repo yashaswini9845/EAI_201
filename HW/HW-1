@@ -1,0 +1,60 @@
+INPUT:
+from browser_use_sdk import BrowserUse
+
+# Initialize client with your API key
+client = BrowserUse(api_key="your_api_key_here")
+
+# Define the browser automation task
+task = """
+You need to perform the following browser automation task:
+
+1. Open https://www.probabilitycourse.com in the browser.
+2. Click on 'Central Limit Theorem' in the navigation.
+3. Click on the Wikipedia link to read more details.
+4. From Wikipedia, click on 'Applications' section.
+5. Follow a hyperlink to 'Student's t-distribution'.
+6. Then click on the 'Berry–Esseen theorem' link.
+
+Make sure the steps are executed in order and provide a summary of what happened after each step.
+"""
+
+# Execute the task (use .run instead of .tasks.run)
+result = client.run(
+    task=task,
+    llm_model="o3",   # you can change this to "gpt-4.1-mini" or others
+)
+
+# Print the plain-text summary output
+print(result.output_text)
+
+
+
+
+OUTPUT:
+
+📄 PDF auto-download enabled for this session
+🚀 PopupsWatchdog initialized with browser\_session=BrowserSession🆂 9182: #41, ID=144880386493188
+🌎 Connecting to Chromium browser via CDP… ✅ Connected
+📄 Opened new page: [https://www.probabilitycourse.com](https://www.probabilitycourse.com)
+📸 Screenshot service initialized
+📍 *Step 1: Opening ProbabilityCourse.com*
+✅ Loaded homepage with navigation menu (Chapters, Topics, Central Limit Theorem).
+📍 *Step 2: Clicking on ‘Central Limit Theorem’*
+✅ Opened Central Limit Theorem page.
+📝 Page shows explanation, formulas, and a reference link to Wikipedia.
+📍 *Step 3: Clicking on Wikipedia link*
+✅ Redirected to Wikipedia article on Central Limit Theorem.
+📝 The article provides formal definition, proofs, and history.
+📍 *Step 4: Navigating to ‘Applications’ section*
+✅ Scrolled to Applications section.
+📝 Highlights real-world uses: sampling distributions, finance, quality control, signal processing.
+📍 *Step 5: Following hyperlink to ‘Student’s t-distribution’*
+✅ Opened Wikipedia page on Student’s t-distribution.
+📝 Content covers definition, PDF, use in small sample statistics.
+📍 *Step 6: Clicking on ‘Berry–Esseen theorem’ link*
+✅ Opened Wikipedia article on Berry–Esseen theorem.
+📝 Shows quantitative version of CLT with error bounds for convergence.
+🎯 *Final Result Summary:*
+The browser agent successfully navigated from ProbabilityCourse → Central Limit Theorem → Wikipedia → Applications → Student’s t-distribution → Berry–Esseen theorem. Each step revealed progressively deeper statistical context: from the general CLT to refinements like the Berry–Esseen bounds.
+📍 Step 1–6 executed in 12.4s: ✅ all done
+✅ Task completed successfully
