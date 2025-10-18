@@ -48,3 +48,26 @@ right_group = [row for row in data if row[best_split['feature']] > best_split['v
 
 print(f"\nLeft Group: {[row['price'] for row in left_group]}")
 print(f"Right Group: {[row['price'] for row in right_group]}")
+
+
+
+
+OUTPUT:
+Root Node - Mean Price: 150.0, Variance: 520.0
+area <= 1300.0: Weighted Variance = 295.00
+area <= 1500.0: Weighted Variance = 340.00
+area <= 1650.0: Weighted Variance = 103.33
+area <= 1775.0: Weighted Variance = 420.00
+rooms <= 3.5: Weighted Variance = 103.33
+rooms <= 4.5: Weighted Variance = 295.00
+distance <= 3.5: Weighted Variance = 405.00
+distance <= 4.0: Weighted Variance = 405.00
+distance <= 6.0: Weighted Variance = 440.00
+age <= 6.5: Weighted Variance = 433.33
+age <= 12.5: Weighted Variance = 503.33
+
+Best Split: area <= 1650.0
+Variance Reduction: 416.7
+
+Left Group: [120, 150, 130]
+Right Group: [180, 170]
